@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './Home'
 import RestaurantList from './RestaurantList'
 
-const Container = styled.div`
+export const Container = styled.div`
   padding: 24px;
 `
 
 class App extends Component {
   render() {
     return (
-      <Container>
-        <Home />
-        <RestaurantList />
-      </Container>
+      <Router>
+        <Switch>
+          <Route path="/restaurant" component={RestaurantList} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </Router>
     )
   }
 }

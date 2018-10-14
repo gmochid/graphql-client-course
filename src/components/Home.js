@@ -1,6 +1,9 @@
 import React from 'react'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
+import { Link } from 'react-router-dom'
+
+import { Container } from './App'
 
 const Home = ({ data, loading, error }) => {
   if (loading) {
@@ -10,13 +13,14 @@ const Home = ({ data, loading, error }) => {
     return <div>An unexpected error occurred</div>
   }
   return (
-    <div>
+    <Container>
       <div>Home</div>
-      <div>{data.home.user.name}</div>
-      <div>{data.home.recommendation.name}</div>
+      <div>User: {data.home.user.name}</div>
+      <div>Recommendation: {data.home.recommendation.name}</div>
       <br/>
       <br/>
-    </div>
+      <Link to='/restaurant'>Restaurant List</Link>
+    </Container>
   )
 }
 

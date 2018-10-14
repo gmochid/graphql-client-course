@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
 
+import { Container } from './App'
+
 const Restaurant = styled.div`
   padding: 8px 0;
 `
@@ -21,7 +23,7 @@ const RestaurantList = ({ data, loading, error }) => {
     return <div>An unexpected error occurred</div>
   }
   return (
-    <div>
+    <Container>
       <div>Restaurant List</div>
       {data.restaurants.map((restaurant, index) => (
         <Restaurant key={index}>
@@ -29,7 +31,7 @@ const RestaurantList = ({ data, loading, error }) => {
           <Address>{restaurant.name}</Address>
         </Restaurant>
       ))}
-    </div>
+    </Container>
   )
 }
 
